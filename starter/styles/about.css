@@ -36,8 +36,6 @@
   font-size: 1.5rem;
 }
 
-
-
 /* Media Query for Tablets (768px and below) */
 @media (max-width: 768px) {
   .aboutContainer {

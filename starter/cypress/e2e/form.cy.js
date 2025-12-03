@@ -2,28 +2,24 @@ describe("Form Tests", () => {
   beforeEach(() => {
     // Visit the Card Sets page before each test
     cy.visit("/");
-    cy.get("#cardSetPage").click();
+    cy.get("#cardSetPage").click({ force: true });
   });
 
   describe("Create Set Form", () => {
     it("should successfully create a new set with valid input (happy path)", () => {
-      cy.contains("button", "Create New Study Set").click();
+      cy.contains("button", "Add New Set").click();
 
-      // Wait for the form to be visible
       cy.get('[data-cy="set_form"]').should("be.visible");
 
-     
       cy.get('[data-cy="set_form"] input[name="titleInput"]').type("Test Set");
 
-      
       cy.get('[data-cy="set_form"] input[type="submit"]').click();
 
-     
       cy.contains("Test Set").should("be.visible");
     });
 
     it("should show an error when submitting an empty string (unhappy path)", () => {
-      cy.contains("button", "Create New Study Set").click();
+      cy.contains("button", "Add New Set").click();
 
       cy.get('[data-cy="set_form"]').should("be.visible");
 
@@ -37,14 +33,18 @@ describe("Form Tests", () => {
 
   describe("Add Card Form", () => {
     beforeEach(() => {
-      cy.contains("button", "Create New Study Set").click();
+      cy.contains("button", "Add New Set").click();
       cy.get('[data-cy="set_form"]').should("be.visible");
       cy.get('[data-cy="set_form"] input[name="titleInput"]').type(
         "Test Card Set"
       );
       cy.get('[data-cy="set_form"] input[type="submit"]').click();
 
+      cy.contains("Test Card Set").should("be.visible");
       cy.contains("Test Card Set").click();
+
+      cy.wait(500);
+      cy.contains("button", "Add New Card").click();
     });
 
     it("should successfully add a new card with valid input (happy path)", () => {

@@ -4,8 +4,15 @@
   "description": "A flashcard application for studying with card sets",
   "type": "module",
   "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html",
     "gulp": "gulp",
-    "test": "mocha"
+    "test": "mocha",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -15,12 +22,14 @@
     "chai": "^6.2.1",
     "cypress": "^15.7.0",
     "eslint": "^9.39.1",
+    "eslint-plugin-cypress": "^5.2.0",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.5.0",
     "gulp": "^5.0.1",
     "gulp-cli": "^3.1.0",
     "gulp-shell": "^0.8.0",
     "mocha": "^11.7.5",
-    "parcel": "^2.16.1"
+    "parcel": "^2.16.1",
+    "prettier": "^3.7.3"
   }
 }

@@ -1,0 +1,23 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "mocha": true,
+    "cypress/globals": true
+  },
+  "extends": "eslint:recommended",
+  "plugins": ["cypress"],
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-var": "error",
+    "no-unused-vars": "error",
+    "semi": ["error", "always"],
+    "eqeqeq": ["error", "always"],
+    "no-console": "warn"
+  },
+  "ignorePatterns": ["dist/", "node_modules/", ".parcel-cache/"]
+}
